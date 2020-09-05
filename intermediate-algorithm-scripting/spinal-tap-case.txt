@@ -1,0 +1,34 @@
+function spinalCase(str) {
+  let p = '';
+  for( let i = 0; i< str.length ; i++ ){
+    let charCode  = str.charCodeAt(i);
+    if( (charCode <64 || charCode >91 ) && (charCode < 97 || charCode > 122 ) ){
+        //c'est pas une lettre je mets du blanc
+        p = p + ' ';
+    }
+    else if(charCode >64 && charCode < 91 ) {
+      //c'est une majuscule --> transforme
+        //est-ce que le caracthere avant est une lettre ?
+        let blank = '';
+        if( str[i - 1] ){
+          charCode = str.charCodeAt(i-1);
+             if( (charCode >= 97 && charCode <= 122 ) )            {
+               //c'est une minuscule alors ajoute espace 
+                p = p + ' ';
+             }
+        }
+        p = p + str[i].toLowerCase(); 
+    }
+    else{
+      //minuscule
+      p = p + str[i];
+    }
+    
+  }
+  console.log(str );
+  console.log( p.toLowerCase().replace(/ /ig, '-') );
+  str = p;
+  return str.toLowerCase().replace(/ /ig, '-');
+}
+
+spinalCase('The_Andy_Griffith_Show');

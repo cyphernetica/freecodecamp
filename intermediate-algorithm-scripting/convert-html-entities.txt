@@ -1,0 +1,11 @@
+function convertHTML(str) {
+  var res = str.replace(/\&/ig, '&amp;');
+  res = res.replace(/'/ig, '&apos;');
+   res = res.replace(/</ig, '&lt;');
+    res = res.replace(/>/ig, '&gt;');
+    res = res.replace(/"/ig, '&quot;');
+  console.log( res );
+  return res;
+}
+
+convertHTML("Dolce &'< > \"\" > Gabbana");

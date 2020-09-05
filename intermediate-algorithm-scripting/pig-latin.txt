@@ -1,0 +1,29 @@
+function translatePigLatin(str) {
+  let firstCode = str.charCodeAt(0);
+  let tab = [ 97,101,105,111, 117];
+  if( tab.includes(firstCode) ) {
+    str = str + 'way';
+  }
+  else{
+      let found  = false;
+      let index = 0;
+      for( let i =0 ; i< str.length ; i++ ){
+        if( !found ){
+           if( tab.includes(str.charCodeAt(i)) ) {
+             index = i;
+              found = true;
+            }
+        }
+      }
+      console.log( found );
+      if( found ){
+        str = str.substring( index ) + str.substring( 0, index) + 'ay';
+      }
+      else{
+        str += 'ay';
+      }
+  }
+  return str;
+}
+
+translatePigLatin("rhythm");

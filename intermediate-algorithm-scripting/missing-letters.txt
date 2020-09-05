@@ -1,0 +1,33 @@
+function fearNotLetter(str) {
+  let lastCharCode = null;
+  let index = undefined;
+  for(let i =0 ; i<str.length ; i ++ ){
+      if( lastCharCode == null ){
+        lastCharCode = str.charCodeAt( i );
+      }
+      else {
+        let currentCharCode = str.charCodeAt( i );
+        let checkCharCode = lastCharCode + 1;
+        console.log( str[i] );
+        console.log(lastCharCode );
+        console.log(currentCharCode );
+        console.log(checkCharCode );
+        if( checkCharCode != currentCharCode ){
+            index = i -1;
+            i = str.length +1;
+        }
+        lastCharCode = currentCharCode;
+      }
+  }
+  var res = undefined;
+  if( index != undefined ){
+    lastCharCode = lastCharCode -1 ;
+    res = String.fromCharCode(lastCharCode);
+  }
+
+  console.log( res , 'res');
+  return res;
+  
+}
+
+fearNotLetter("abce");
